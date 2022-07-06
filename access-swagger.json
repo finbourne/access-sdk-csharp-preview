@@ -9,7 +9,7 @@
       "url": "https://www.finbourne.com",
       "email": "info@finbourne.com"
     },
-    "version": "0.0.1842",
+    "version": "0.0.2140",
     "x-logo": {
       "url": "https://www.lusid.com/app/assets/logo_white.png",
       "backgroundColor": "#415464"
@@ -1509,7 +1509,7 @@
         "tags": [
           "Policies"
         ],
-        "summary": "[EXPERIMENTAL] PagePolicies: Page Policies",
+        "summary": "[EARLY ACCESS] PagePolicies: Page Policies",
         "description": "Gets all PolicyCollections in a scope in pages. Under development.",
         "operationId": "PagePolicies",
         "parameters": [
@@ -1849,7 +1849,7 @@
             "oauth2": [ ]
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/policies/{code}": {
@@ -3247,7 +3247,7 @@
         "tags": [
           "Policies"
         ],
-        "summary": "[EXPERIMENTAL] PagePolicyCollections: Page PolicyCollections",
+        "summary": "[EARLY ACCESS] PagePolicyCollections: Page PolicyCollections",
         "description": "Gets all PolicyCollections in a scope in pages. Under development.",
         "operationId": "PagePolicyCollections",
         "parameters": [
@@ -3461,7 +3461,7 @@
             "oauth2": [ ]
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/policycollections/{code}": {
@@ -3974,7 +3974,7 @@
         "tags": [
           "Policies"
         ],
-        "summary": "[EXPERIMENTAL] AddToPolicyCollection: Add To PolicyCollection",
+        "summary": "[EARLY ACCESS] AddToPolicyCollection: Add To PolicyCollection",
         "description": "Add Policies and/or PolicyCollections to a PolicyCollection",
         "operationId": "AddToPolicyCollection",
         "parameters": [
@@ -4223,7 +4223,7 @@
             "oauth2": [ ]
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/policycollections/{code}/remove": {
@@ -4231,7 +4231,7 @@
         "tags": [
           "Policies"
         ],
-        "summary": "[EXPERIMENTAL] RemoveFromPolicyCollection: Remove From PolicyCollection",
+        "summary": "[EARLY ACCESS] RemoveFromPolicyCollection: Remove From PolicyCollection",
         "description": "Remove Policies and/or PolicyCollections from a PolicyCollection",
         "operationId": "RemoveFromPolicyCollection",
         "parameters": [
@@ -4480,7 +4480,7 @@
             "oauth2": [ ]
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/roles": {
@@ -5678,7 +5678,7 @@
         "tags": [
           "Roles"
         ],
-        "summary": "[EXPERIMENTAL] AddPolicyCollectionToRole: Add policy collections to a role",
+        "summary": "[EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role",
         "description": "Assigns policy collections to a role",
         "operationId": "AddPolicyCollectionToRole",
         "parameters": [
@@ -5933,7 +5933,7 @@
             "oauth2": [ ]
           }
         ],
-        "x-fbn-apistatus": "Experimental"
+        "x-fbn-apistatus": "EarlyAccess"
       }
     },
     "/api/roles/{scope}/{code}/policycollections/{policycollectionscope}/{policycollectioncode}": {
@@ -5941,7 +5941,7 @@
         "tags": [
           "Roles"
         ],
-        "summary": "[EXPERIMENTAL] RemovePolicyCollectionFromRole: Remove policy collection from role",
+        "summary": "[EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role",
         "description": "Removes a policy collection from a role",
         "operationId": "RemovePolicyCollectionFromRole",
         "parameters": [
@@ -6102,6 +6102,856 @@
     "deactivate": "2020-08-31T18:00:00.0000000+00:00"
   },
   "permission": "Read"
+}
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ],
+        "x-fbn-apistatus": "EarlyAccess"
+      }
+    },
+    "/api/userroles": {
+      "post": {
+        "tags": [
+          "User-roles"
+        ],
+        "summary": "[EXPERIMENTAL] CreateUserRole: Create a user-role",
+        "description": "Creates a new user-role.",
+        "operationId": "CreateUserRole",
+        "requestBody": {
+          "description": "Definition of the user-role to create.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleCreationRequest"
+              },
+              "example": {
+  "userId": "ExampleUserId",
+  "resource": {
+    "policies": [
+      {
+        "scope": "ExamplePolicyId",
+        "code": "ExampleScope"
+      }
+    ],
+    "policyCollections": [
+      {
+        "scope": "ExamplePolicyCollectionId",
+        "code": "ExampleScope"
+      }
+    ]
+  }
+}
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleCreationRequest"
+              },
+              "example": {
+  "userId": "ExampleUserId",
+  "resource": {
+    "policies": [
+      {
+        "scope": "ExamplePolicyId",
+        "code": "ExampleScope"
+      }
+    ],
+    "policyCollections": [
+      {
+        "scope": "ExamplePolicyCollectionId",
+        "code": "ExampleScope"
+      }
+    ]
+  }
+}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleCreationRequest"
+              },
+              "example": {
+  "userId": "ExampleUserId",
+  "resource": {
+    "policies": [
+      {
+        "scope": "ExamplePolicyId",
+        "code": "ExampleScope"
+      }
+    ],
+    "policyCollections": [
+      {
+        "scope": "ExamplePolicyCollectionId",
+        "code": "ExampleScope"
+      }
+    ]
+  }
+}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleCreationRequest"
+              },
+              "example": {
+  "userId": "ExampleUserId",
+  "resource": {
+    "policies": [
+      {
+        "scope": "ExamplePolicyId",
+        "code": "ExampleScope"
+      }
+    ],
+    "policyCollections": [
+      {
+        "scope": "ExamplePolicyCollectionId",
+        "code": "ExampleScope"
+      }
+    ]
+  }
+}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "User role that has been created.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
+}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
+}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
+}
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "get": {
+        "tags": [
+          "User-roles"
+        ],
+        "summary": "[EXPERIMENTAL] ListUserRoles: List user-roles",
+        "description": "Lists all user-roles and pages.",
+        "operationId": "ListUserRoles",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Optional. When paginating, limit the number of returned results to this many.",
+            "schema": {
+              "maximum": 5000,
+              "minimum": 1,
+              "type": "integer",
+              "description": "Optional. When paginating, limit the number of returned results to this many.",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-nullable": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Optional. Encoded page string returned from a previous search result that will retrieve\r\n            the next page of data.",
+            "schema": {
+              "maxLength": 500,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9\\+/]*={0,3}$",
+              "type": "string",
+              "description": "Optional. Encoded page string returned from a previous search result that will retrieve\r\n            the next page of data.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfUserRoleResponse"
+                },
+                "example": {
+  "values": [
+    {
+      "resource": {
+        "policyIdRoleResource": {
+          "policies": [
+            {
+              "scope": "ExamplePolicyId",
+              "code": "ExampleScope"
+            }
+          ],
+          "policyCollections": [
+            {
+              "scope": "ExamplePolicyCollectionId",
+              "code": "ExampleScope"
+            }
+          ]
+        }
+      },
+      "id": {
+        "scope": "default",
+        "code": "ExampleUserId"
+      }
+    }
+  ],
+  "href": "https://example.lusid.com/access/api/userroles?limit=limit&page=page",
+  "links": []
+}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfUserRoleResponse"
+                },
+                "example": {
+  "values": [
+    {
+      "resource": {
+        "policyIdRoleResource": {
+          "policies": [
+            {
+              "scope": "ExamplePolicyId",
+              "code": "ExampleScope"
+            }
+          ],
+          "policyCollections": [
+            {
+              "scope": "ExamplePolicyCollectionId",
+              "code": "ExampleScope"
+            }
+          ]
+        }
+      },
+      "id": {
+        "scope": "default",
+        "code": "ExampleUserId"
+      }
+    }
+  ],
+  "href": "https://example.lusid.com/access/api/userroles?limit=limit&page=page",
+  "links": []
+}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceListOfUserRoleResponse"
+                },
+                "example": {
+  "values": [
+    {
+      "resource": {
+        "policyIdRoleResource": {
+          "policies": [
+            {
+              "scope": "ExamplePolicyId",
+              "code": "ExampleScope"
+            }
+          ],
+          "policyCollections": [
+            {
+              "scope": "ExamplePolicyCollectionId",
+              "code": "ExampleScope"
+            }
+          ]
+        }
+      },
+      "id": {
+        "scope": "default",
+        "code": "ExampleUserId"
+      }
+    }
+  ],
+  "href": "https://example.lusid.com/access/api/userroles?limit=limit&page=page",
+  "links": []
+}
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/userroles/{userid}": {
+      "get": {
+        "tags": [
+          "User-roles"
+        ],
+        "summary": "[EXPERIMENTAL] GetUserRole: Get a user-role",
+        "description": "Get an identified user-role.",
+        "operationId": "GetUserRole",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "description": "Id of the user-role to get.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Id of the user-role to get."
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested user role.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
+}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
+}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
+}
+              }
+            }
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      },
+      "delete": {
+        "tags": [
+          "User-roles"
+        ],
+        "summary": "[EXPERIMENTAL] DeleteUserRole: Delete a user-role",
+        "description": "Deletes an identified user-role.",
+        "operationId": "DeleteUserRole",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "description": "Id of the user-role to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Id of the user-role to delete."
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "The details of the input related failure",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LusidProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ],
+        "x-fbn-apistatus": "Experimental"
+      }
+    },
+    "/api/userroles/{userid}/update": {
+      "post": {
+        "tags": [
+          "User-roles"
+        ],
+        "summary": "[EXPERIMENTAL] UpdateUserRole: Update a user-role",
+        "description": "Updates an identified user-role.",
+        "operationId": "UpdateUserRole",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "description": "Id of the user-role to be updated.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Id of the user-role to be updated."
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Definition of the update to apply to the user-role.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleUpdateRequest"
+              },
+              "example": {
+  "resource": {
+    "policies": [
+      {
+        "scope": "ExamplePolicyId",
+        "code": "ExampleScope"
+      }
+    ],
+    "policyCollections": [
+      {
+        "scope": "ExamplePolicyCollectionId",
+        "code": "ExampleScope"
+      }
+    ]
+  }
+}
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleUpdateRequest"
+              },
+              "example": {
+  "resource": {
+    "policies": [
+      {
+        "scope": "ExamplePolicyId",
+        "code": "ExampleScope"
+      }
+    ],
+    "policyCollections": [
+      {
+        "scope": "ExamplePolicyCollectionId",
+        "code": "ExampleScope"
+      }
+    ]
+  }
+}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleUpdateRequest"
+              },
+              "example": {
+  "resource": {
+    "policies": [
+      {
+        "scope": "ExamplePolicyId",
+        "code": "ExampleScope"
+      }
+    ],
+    "policyCollections": [
+      {
+        "scope": "ExamplePolicyCollectionId",
+        "code": "ExampleScope"
+      }
+    ]
+  }
+}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleUpdateRequest"
+              },
+              "example": {
+  "resource": {
+    "policies": [
+      {
+        "scope": "ExamplePolicyId",
+        "code": "ExampleScope"
+      }
+    ],
+    "policyCollections": [
+      {
+        "scope": "ExamplePolicyCollectionId",
+        "code": "ExampleScope"
+      }
+    ]
+  }
+}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "User role that has been updated.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
+}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
+}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRoleResponse"
+                },
+                "example": {
+  "resource": {
+    "policyIdRoleResource": {
+      "policies": [
+        {
+          "scope": "ExamplePolicyId",
+          "code": "ExampleScope"
+        }
+      ],
+      "policyCollections": [
+        {
+          "scope": "ExamplePolicyCollectionId",
+          "code": "ExampleScope"
+        }
+      ]
+    }
+  },
+  "id": {
+    "scope": "default",
+    "code": "ExampleUserId"
+  }
 }
               }
             }
@@ -7685,6 +8535,41 @@
         },
         "additionalProperties": false
       },
+      "ResourceListOfUserRoleResponse": {
+        "required": [
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRoleResponse"
+            }
+          },
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "nextPage": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RoleCreationRequest": {
         "required": [
           "code",
@@ -7855,6 +8740,62 @@
         ],
         "type": "string"
       },
+      "UserRoleCreationRequest": {
+        "required": [
+          "resource",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "pattern": "^(?=.*[a-zA-Z])[\\w][\\w +-]{2,100}$",
+            "type": "string",
+            "description": "The Id of the user for whom to create the role."
+          },
+          "resource": {
+            "$ref": "#/components/schemas/PolicyIdRoleResource"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Dto used to request creating a user's role"
+      },
+      "UserRoleResponse": {
+        "required": [
+          "id",
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/RoleResourceRequest"
+          },
+          "id": {
+            "$ref": "#/components/schemas/RoleId"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response object from the user role API"
+      },
+      "UserRoleUpdateRequest": {
+        "required": [
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/PolicyIdRoleResource"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Dto used to request updating a user's role"
+      },
       "WhenSpec": {
         "required": [
           "activate"
@@ -7901,7 +8842,11 @@
     },
     {
       "name": "Roles",
-      "description": "Endpoints for administering with Roles"
+      "description": "Endpoints for administering Roles"
+    },
+    {
+      "name": "User-roles",
+      "description": "Endpoints for administering user-roles"
     }
   ],
   "x-tagGroups": {
@@ -7909,7 +8854,8 @@
     "tags": [
       "Application Metadata",
       "Policies",
-      "Roles"
+      "Roles",
+      "User-roles"
     ]
   }
 }

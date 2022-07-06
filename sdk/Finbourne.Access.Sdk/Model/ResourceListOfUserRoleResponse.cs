@@ -27,28 +27,28 @@ using OpenAPIDateConverter = Finbourne.Access.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Access.Sdk.Model
 {
     /// <summary>
-    /// ResourceListOfPolicyCollectionResponse
+    /// ResourceListOfUserRoleResponse
     /// </summary>
-    [DataContract(Name = "ResourceListOfPolicyCollectionResponse")]
-    public partial class ResourceListOfPolicyCollectionResponse : IEquatable<ResourceListOfPolicyCollectionResponse>
+    [DataContract(Name = "ResourceListOfUserRoleResponse")]
+    public partial class ResourceListOfUserRoleResponse : IEquatable<ResourceListOfUserRoleResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfPolicyCollectionResponse" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfUserRoleResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ResourceListOfPolicyCollectionResponse() { }
+        protected ResourceListOfUserRoleResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResourceListOfPolicyCollectionResponse" /> class.
+        /// Initializes a new instance of the <see cref="ResourceListOfUserRoleResponse" /> class.
         /// </summary>
         /// <param name="values">values (required).</param>
         /// <param name="href">href.</param>
         /// <param name="links">links.</param>
         /// <param name="nextPage">nextPage.</param>
         /// <param name="previousPage">previousPage.</param>
-        public ResourceListOfPolicyCollectionResponse(List<PolicyCollectionResponse> values = default(List<PolicyCollectionResponse>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
+        public ResourceListOfUserRoleResponse(List<UserRoleResponse> values = default(List<UserRoleResponse>), string href = default(string), List<Link> links = default(List<Link>), string nextPage = default(string), string previousPage = default(string))
         {
             // to ensure "values" is required (not null)
-            this.Values = values ?? throw new ArgumentNullException("values is a required property for ResourceListOfPolicyCollectionResponse and cannot be null");
+            this.Values = values ?? throw new ArgumentNullException("values is a required property for ResourceListOfUserRoleResponse and cannot be null");
             this.Href = href;
             this.Links = links;
             this.NextPage = nextPage;
@@ -59,7 +59,7 @@ namespace Finbourne.Access.Sdk.Model
         /// Gets or Sets Values
         /// </summary>
         [DataMember(Name = "values", IsRequired = true, EmitDefaultValue = false)]
-        public List<PolicyCollectionResponse> Values { get; set; }
+        public List<UserRoleResponse> Values { get; set; }
 
         /// <summary>
         /// Gets or Sets Href
@@ -92,7 +92,7 @@ namespace Finbourne.Access.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ResourceListOfPolicyCollectionResponse {\n");
+            sb.Append("class ResourceListOfUserRoleResponse {\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("  Href: ").Append(Href).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -118,15 +118,15 @@ namespace Finbourne.Access.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ResourceListOfPolicyCollectionResponse);
+            return this.Equals(input as ResourceListOfUserRoleResponse);
         }
 
         /// <summary>
-        /// Returns true if ResourceListOfPolicyCollectionResponse instances are equal
+        /// Returns true if ResourceListOfUserRoleResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ResourceListOfPolicyCollectionResponse to be compared</param>
+        /// <param name="input">Instance of ResourceListOfUserRoleResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ResourceListOfPolicyCollectionResponse input)
+        public bool Equals(ResourceListOfUserRoleResponse input)
         {
             if (input == null)
                 return false;

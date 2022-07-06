@@ -27,33 +27,41 @@ using OpenAPIDateConverter = Finbourne.Access.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Access.Sdk.Model
 {
     /// <summary>
-    /// EntitlementMetadata
+    /// Dto used to request creating a user&#39;s role
     /// </summary>
-    [DataContract(Name = "EntitlementMetadata")]
-    public partial class EntitlementMetadata : IEquatable<EntitlementMetadata>
+    [DataContract(Name = "UserRoleCreationRequest")]
+    public partial class UserRoleCreationRequest : IEquatable<UserRoleCreationRequest>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EntitlementMetadata" /> class.
+        /// Initializes a new instance of the <see cref="UserRoleCreationRequest" /> class.
         /// </summary>
-        /// <param name="provider">provider.</param>
-        /// <param name="value">value.</param>
-        public EntitlementMetadata(string provider = default(string), string value = default(string))
+        [JsonConstructorAttribute]
+        protected UserRoleCreationRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserRoleCreationRequest" /> class.
+        /// </summary>
+        /// <param name="userId">The Id of the user for whom to create the role. (required).</param>
+        /// <param name="resource">resource (required).</param>
+        public UserRoleCreationRequest(string userId = default(string), PolicyIdRoleResource resource = default(PolicyIdRoleResource))
         {
-            this.Provider = provider;
-            this.Value = value;
+            // to ensure "userId" is required (not null)
+            this.UserId = userId ?? throw new ArgumentNullException("userId is a required property for UserRoleCreationRequest and cannot be null");
+            // to ensure "resource" is required (not null)
+            this.Resource = resource ?? throw new ArgumentNullException("resource is a required property for UserRoleCreationRequest and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets Provider
+        /// The Id of the user for whom to create the role.
         /// </summary>
-        [DataMember(Name = "provider", EmitDefaultValue = true)]
-        public string Provider { get; set; }
+        /// <value>The Id of the user for whom to create the role.</value>
+        [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = false)]
+        public string UserId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Gets or Sets Resource
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = true)]
-        public string Value { get; set; }
+        [DataMember(Name = "resource", IsRequired = true, EmitDefaultValue = false)]
+        public PolicyIdRoleResource Resource { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +70,9 @@ namespace Finbourne.Access.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class EntitlementMetadata {\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class UserRoleCreationRequest {\n");
+            sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  Resource: ").Append(Resource).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +93,29 @@ namespace Finbourne.Access.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EntitlementMetadata);
+            return this.Equals(input as UserRoleCreationRequest);
         }
 
         /// <summary>
-        /// Returns true if EntitlementMetadata instances are equal
+        /// Returns true if UserRoleCreationRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of EntitlementMetadata to be compared</param>
+        /// <param name="input">Instance of UserRoleCreationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EntitlementMetadata input)
+        public bool Equals(UserRoleCreationRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Provider == input.Provider ||
-                    (this.Provider != null &&
-                    this.Provider.Equals(input.Provider))
+                    this.UserId == input.UserId ||
+                    (this.UserId != null &&
+                    this.UserId.Equals(input.UserId))
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Resource == input.Resource ||
+                    (this.Resource != null &&
+                    this.Resource.Equals(input.Resource))
                 );
         }
 
@@ -120,10 +128,10 @@ namespace Finbourne.Access.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Provider != null)
-                    hashCode = hashCode * 59 + this.Provider.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.UserId != null)
+                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
+                if (this.Resource != null)
+                    hashCode = hashCode * 59 + this.Resource.GetHashCode();
                 return hashCode;
             }
         }

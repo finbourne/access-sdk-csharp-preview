@@ -4,7 +4,7 @@ All URIs are relative to *https://www.lusid.com/access*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddToPolicyCollection**](PoliciesApi.md#addtopolicycollection) | **POST** /api/policycollections/{code}/add | [EXPERIMENTAL] AddToPolicyCollection: Add To PolicyCollection
+[**AddToPolicyCollection**](PoliciesApi.md#addtopolicycollection) | **POST** /api/policycollections/{code}/add | [EARLY ACCESS] AddToPolicyCollection: Add To PolicyCollection
 [**CreatePolicy**](PoliciesApi.md#createpolicy) | **POST** /api/policies | [EARLY ACCESS] CreatePolicy: Create Policy
 [**CreatePolicyCollection**](PoliciesApi.md#createpolicycollection) | **POST** /api/policycollections | [EARLY ACCESS] CreatePolicyCollection: Create PolicyCollection
 [**DeletePolicy**](PoliciesApi.md#deletepolicy) | **DELETE** /api/policies/{code} | [EARLY ACCESS] DeletePolicy: Delete Policy
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 [**GetPolicyCollection**](PoliciesApi.md#getpolicycollection) | **GET** /api/policycollections/{code} | [EARLY ACCESS] GetPolicyCollection: Get PolicyCollection
 [**ListPolicies**](PoliciesApi.md#listpolicies) | **GET** /api/policies | [EARLY ACCESS] ListPolicies: List Policies
 [**ListPolicyCollections**](PoliciesApi.md#listpolicycollections) | **GET** /api/policycollections | [EARLY ACCESS] ListPolicyCollections: List PolicyCollections
-[**PagePolicies**](PoliciesApi.md#pagepolicies) | **GET** /api/policies/page | [EXPERIMENTAL] PagePolicies: Page Policies
-[**PagePolicyCollections**](PoliciesApi.md#pagepolicycollections) | **GET** /api/policycollections/page | [EXPERIMENTAL] PagePolicyCollections: Page PolicyCollections
-[**RemoveFromPolicyCollection**](PoliciesApi.md#removefrompolicycollection) | **POST** /api/policycollections/{code}/remove | [EXPERIMENTAL] RemoveFromPolicyCollection: Remove From PolicyCollection
+[**PagePolicies**](PoliciesApi.md#pagepolicies) | **GET** /api/policies/page | [EARLY ACCESS] PagePolicies: Page Policies
+[**PagePolicyCollections**](PoliciesApi.md#pagepolicycollections) | **GET** /api/policycollections/page | [EARLY ACCESS] PagePolicyCollections: Page PolicyCollections
+[**RemoveFromPolicyCollection**](PoliciesApi.md#removefrompolicycollection) | **POST** /api/policycollections/{code}/remove | [EARLY ACCESS] RemoveFromPolicyCollection: Remove From PolicyCollection
 [**UpdatePolicy**](PoliciesApi.md#updatepolicy) | **PUT** /api/policies/{code} | [EARLY ACCESS] UpdatePolicy: Update Policy
 [**UpdatePolicyCollection**](PoliciesApi.md#updatepolicycollection) | **PUT** /api/policycollections/{code} | [EARLY ACCESS] UpdatePolicyCollection: Update PolicyCollection
 
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 # **AddToPolicyCollection**
 > PolicyCollectionResponse AddToPolicyCollection (string code, AddToPolicyCollectionRequest addToPolicyCollectionRequest, string scope = null)
 
-[EXPERIMENTAL] AddToPolicyCollection: Add To PolicyCollection
+[EARLY ACCESS] AddToPolicyCollection: Add To PolicyCollection
 
 Add Policies and/or PolicyCollections to a PolicyCollection
 
@@ -56,7 +56,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] AddToPolicyCollection: Add To PolicyCollection
+                // [EARLY ACCESS] AddToPolicyCollection: Add To PolicyCollection
                 PolicyCollectionResponse result = apiInstance.AddToPolicyCollection(code, addToPolicyCollectionRequest, scope);
                 Debug.WriteLine(result);
             }
@@ -910,7 +910,7 @@ Name | Type | Description  | Notes
 # **PagePolicies**
 > ResourceListOfPolicyResponse PagePolicies (DateTimeOffset? asAt = null, string sortBy = null, int? limit = null, string filter = null, string page = null)
 
-[EXPERIMENTAL] PagePolicies: Page Policies
+[EARLY ACCESS] PagePolicies: Page Policies
 
 Gets all PolicyCollections in a scope in pages. Under development.
 
@@ -942,7 +942,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] PagePolicies: Page Policies
+                // [EARLY ACCESS] PagePolicies: Page Policies
                 ResourceListOfPolicyResponse result = apiInstance.PagePolicies(asAt, sortBy, limit, filter, page);
                 Debug.WriteLine(result);
             }
@@ -994,7 +994,7 @@ Name | Type | Description  | Notes
 # **PagePolicyCollections**
 > ResourceListOfPolicyCollectionResponse PagePolicyCollections (DateTimeOffset? asAt = null, string sortBy = null, int? limit = null, string filter = null, string page = null)
 
-[EXPERIMENTAL] PagePolicyCollections: Page PolicyCollections
+[EARLY ACCESS] PagePolicyCollections: Page PolicyCollections
 
 Gets all PolicyCollections in a scope in pages. Under development.
 
@@ -1026,7 +1026,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] PagePolicyCollections: Page PolicyCollections
+                // [EARLY ACCESS] PagePolicyCollections: Page PolicyCollections
                 ResourceListOfPolicyCollectionResponse result = apiInstance.PagePolicyCollections(asAt, sortBy, limit, filter, page);
                 Debug.WriteLine(result);
             }
@@ -1078,7 +1078,7 @@ Name | Type | Description  | Notes
 # **RemoveFromPolicyCollection**
 > PolicyCollectionResponse RemoveFromPolicyCollection (string code, RemoveFromPolicyCollectionRequest removeFromPolicyCollectionRequest, string scope = null)
 
-[EXPERIMENTAL] RemoveFromPolicyCollection: Remove From PolicyCollection
+[EARLY ACCESS] RemoveFromPolicyCollection: Remove From PolicyCollection
 
 Remove Policies and/or PolicyCollections from a PolicyCollection
 
@@ -1108,7 +1108,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] RemoveFromPolicyCollection: Remove From PolicyCollection
+                // [EARLY ACCESS] RemoveFromPolicyCollection: Remove From PolicyCollection
                 PolicyCollectionResponse result = apiInstance.RemoveFromPolicyCollection(code, removeFromPolicyCollectionRequest, scope);
                 Debug.WriteLine(result);
             }

@@ -27,33 +27,31 @@ using OpenAPIDateConverter = Finbourne.Access.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Access.Sdk.Model
 {
     /// <summary>
-    /// EntitlementMetadata
+    /// Dto used to request updating a user&#39;s role
     /// </summary>
-    [DataContract(Name = "EntitlementMetadata")]
-    public partial class EntitlementMetadata : IEquatable<EntitlementMetadata>
+    [DataContract(Name = "UserRoleUpdateRequest")]
+    public partial class UserRoleUpdateRequest : IEquatable<UserRoleUpdateRequest>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EntitlementMetadata" /> class.
+        /// Initializes a new instance of the <see cref="UserRoleUpdateRequest" /> class.
         /// </summary>
-        /// <param name="provider">provider.</param>
-        /// <param name="value">value.</param>
-        public EntitlementMetadata(string provider = default(string), string value = default(string))
+        [JsonConstructorAttribute]
+        protected UserRoleUpdateRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserRoleUpdateRequest" /> class.
+        /// </summary>
+        /// <param name="resource">resource (required).</param>
+        public UserRoleUpdateRequest(PolicyIdRoleResource resource = default(PolicyIdRoleResource))
         {
-            this.Provider = provider;
-            this.Value = value;
+            // to ensure "resource" is required (not null)
+            this.Resource = resource ?? throw new ArgumentNullException("resource is a required property for UserRoleUpdateRequest and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets Provider
+        /// Gets or Sets Resource
         /// </summary>
-        [DataMember(Name = "provider", EmitDefaultValue = true)]
-        public string Provider { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = true)]
-        public string Value { get; set; }
+        [DataMember(Name = "resource", IsRequired = true, EmitDefaultValue = false)]
+        public PolicyIdRoleResource Resource { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +60,8 @@ namespace Finbourne.Access.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class EntitlementMetadata {\n");
-            sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class UserRoleUpdateRequest {\n");
+            sb.Append("  Resource: ").Append(Resource).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +82,24 @@ namespace Finbourne.Access.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as EntitlementMetadata);
+            return this.Equals(input as UserRoleUpdateRequest);
         }
 
         /// <summary>
-        /// Returns true if EntitlementMetadata instances are equal
+        /// Returns true if UserRoleUpdateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of EntitlementMetadata to be compared</param>
+        /// <param name="input">Instance of UserRoleUpdateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EntitlementMetadata input)
+        public bool Equals(UserRoleUpdateRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Provider == input.Provider ||
-                    (this.Provider != null &&
-                    this.Provider.Equals(input.Provider))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Resource == input.Resource ||
+                    (this.Resource != null &&
+                    this.Resource.Equals(input.Resource))
                 );
         }
 
@@ -120,10 +112,8 @@ namespace Finbourne.Access.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Provider != null)
-                    hashCode = hashCode * 59 + this.Provider.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.Resource != null)
+                    hashCode = hashCode * 59 + this.Resource.GetHashCode();
                 return hashCode;
             }
         }

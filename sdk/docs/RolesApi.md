@@ -4,12 +4,12 @@ All URIs are relative to *https://www.lusid.com/access*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddPolicyCollectionToRole**](RolesApi.md#addpolicycollectiontorole) | **POST** /api/roles/{scope}/{code}/policycollections | [EXPERIMENTAL] AddPolicyCollectionToRole: Add policy collections to a role
+[**AddPolicyCollectionToRole**](RolesApi.md#addpolicycollectiontorole) | **POST** /api/roles/{scope}/{code}/policycollections | [EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role
 [**CreateRole**](RolesApi.md#createrole) | **POST** /api/roles | [EARLY ACCESS] CreateRole: Create Role
 [**DeleteRole**](RolesApi.md#deleterole) | **DELETE** /api/roles/{code} | [EARLY ACCESS] DeleteRole: Delete Role
 [**GetRole**](RolesApi.md#getrole) | **GET** /api/roles/{code} | [EARLY ACCESS] GetRole: Get Role
 [**ListRoles**](RolesApi.md#listroles) | **GET** /api/roles | [EARLY ACCESS] ListRoles: List Roles
-[**RemovePolicyCollectionFromRole**](RolesApi.md#removepolicycollectionfromrole) | **DELETE** /api/roles/{scope}/{code}/policycollections/{policycollectionscope}/{policycollectioncode} | [EXPERIMENTAL] RemovePolicyCollectionFromRole: Remove policy collection from role
+[**RemovePolicyCollectionFromRole**](RolesApi.md#removepolicycollectionfromrole) | **DELETE** /api/roles/{scope}/{code}/policycollections/{policycollectionscope}/{policycollectioncode} | [EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role
 [**UpdateRole**](RolesApi.md#updaterole) | **PUT** /api/roles/{code} | [EARLY ACCESS] UpdateRole: Update Role
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 # **AddPolicyCollectionToRole**
 > RoleResponse AddPolicyCollectionToRole (string scope, string code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest)
 
-[EXPERIMENTAL] AddPolicyCollectionToRole: Add policy collections to a role
+[EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role
 
 Assigns policy collections to a role
 
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] AddPolicyCollectionToRole: Add policy collections to a role
+                // [EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role
                 RoleResponse result = apiInstance.AddPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest);
                 Debug.WriteLine(result);
             }
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 # **RemovePolicyCollectionFromRole**
 > RoleResponse RemovePolicyCollectionFromRole (string scope, string code, string policycollectionscope, string policycollectioncode)
 
-[EXPERIMENTAL] RemovePolicyCollectionFromRole: Remove policy collection from role
+[EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role
 
 Removes a policy collection from a role
 
@@ -447,7 +447,7 @@ namespace Example
 
             try
             {
-                // [EXPERIMENTAL] RemovePolicyCollectionFromRole: Remove policy collection from role
+                // [EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role
                 RoleResponse result = apiInstance.RemovePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode);
                 Debug.WriteLine(result);
             }

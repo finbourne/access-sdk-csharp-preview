@@ -27,50 +27,42 @@ using OpenAPIDateConverter = Finbourne.Access.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Access.Sdk.Model
 {
     /// <summary>
-    /// AccessControlledAction
+    /// Response object from the user role API
     /// </summary>
-    [DataContract(Name = "AccessControlledAction")]
-    public partial class AccessControlledAction : IEquatable<AccessControlledAction>
+    [DataContract(Name = "UserRoleResponse")]
+    public partial class UserRoleResponse : IEquatable<UserRoleResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccessControlledAction" /> class.
+        /// Initializes a new instance of the <see cref="UserRoleResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AccessControlledAction() { }
+        protected UserRoleResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccessControlledAction" /> class.
+        /// Initializes a new instance of the <see cref="UserRoleResponse" /> class.
         /// </summary>
-        /// <param name="description">description (required).</param>
-        /// <param name="action">action (required).</param>
-        /// <param name="limitedSet">limitedSet.</param>
+        /// <param name="resource">resource (required).</param>
+        /// <param name="id">id (required).</param>
         /// <param name="links">links.</param>
-        public AccessControlledAction(string description = default(string), ActionId action = default(ActionId), List<IdSelectorDefinition> limitedSet = default(List<IdSelectorDefinition>), List<Link> links = default(List<Link>))
+        public UserRoleResponse(RoleResourceRequest resource = default(RoleResourceRequest), RoleId id = default(RoleId), List<Link> links = default(List<Link>))
         {
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for AccessControlledAction and cannot be null");
-            // to ensure "action" is required (not null)
-            this.Action = action ?? throw new ArgumentNullException("action is a required property for AccessControlledAction and cannot be null");
-            this.LimitedSet = limitedSet;
+            // to ensure "resource" is required (not null)
+            this.Resource = resource ?? throw new ArgumentNullException("resource is a required property for UserRoleResponse and cannot be null");
+            // to ensure "id" is required (not null)
+            this.Id = id ?? throw new ArgumentNullException("id is a required property for UserRoleResponse and cannot be null");
             this.Links = links;
         }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Gets or Sets Resource
         /// </summary>
-        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = false)]
-        public string Description { get; set; }
+        [DataMember(Name = "resource", IsRequired = true, EmitDefaultValue = false)]
+        public RoleResourceRequest Resource { get; set; }
 
         /// <summary>
-        /// Gets or Sets Action
+        /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = false)]
-        public ActionId Action { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LimitedSet
-        /// </summary>
-        [DataMember(Name = "limitedSet", EmitDefaultValue = true)]
-        public List<IdSelectorDefinition> LimitedSet { get; set; }
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        public RoleId Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Links
@@ -85,10 +77,9 @@ namespace Finbourne.Access.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AccessControlledAction {\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Action: ").Append(Action).Append("\n");
-            sb.Append("  LimitedSet: ").Append(LimitedSet).Append("\n");
+            sb.Append("class UserRoleResponse {\n");
+            sb.Append("  Resource: ").Append(Resource).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -110,35 +101,29 @@ namespace Finbourne.Access.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AccessControlledAction);
+            return this.Equals(input as UserRoleResponse);
         }
 
         /// <summary>
-        /// Returns true if AccessControlledAction instances are equal
+        /// Returns true if UserRoleResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of AccessControlledAction to be compared</param>
+        /// <param name="input">Instance of UserRoleResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AccessControlledAction input)
+        public bool Equals(UserRoleResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Resource == input.Resource ||
+                    (this.Resource != null &&
+                    this.Resource.Equals(input.Resource))
                 ) && 
                 (
-                    this.Action == input.Action ||
-                    (this.Action != null &&
-                    this.Action.Equals(input.Action))
-                ) && 
-                (
-                    this.LimitedSet == input.LimitedSet ||
-                    this.LimitedSet != null &&
-                    input.LimitedSet != null &&
-                    this.LimitedSet.SequenceEqual(input.LimitedSet)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
                     this.Links == input.Links ||
@@ -157,12 +142,10 @@ namespace Finbourne.Access.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Action != null)
-                    hashCode = hashCode * 59 + this.Action.GetHashCode();
-                if (this.LimitedSet != null)
-                    hashCode = hashCode * 59 + this.LimitedSet.GetHashCode();
+                if (this.Resource != null)
+                    hashCode = hashCode * 59 + this.Resource.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Links != null)
                     hashCode = hashCode * 59 + this.Links.GetHashCode();
                 return hashCode;
