@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 <a name="listuserroles"></a>
 # **ListUserRoles**
-> ResourceListOfUserRoleResponse ListUserRoles (int? limit = null, string page = null)
+> ResourceListOfUserRoleResponse ListUserRoles (string filter = null, string sortBy = null, int? limit = null, string page = null)
 
 [EXPERIMENTAL] ListUserRoles: List user-roles
 
@@ -426,13 +426,15 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserRolesApi(config);
+            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var sortBy = sortBy_example;  // string | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
             var page = page_example;  // string | Optional. Encoded page string returned from a previous search result that will retrieve              the next page of data. (optional) 
 
             try
             {
                 // [EXPERIMENTAL] ListUserRoles: List user-roles
-                ResourceListOfUserRoleResponse result = apiInstance.ListUserRoles(limit, page);
+                ResourceListOfUserRoleResponse result = apiInstance.ListUserRoles(filter, sortBy, limit, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -450,6 +452,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **sortBy** | **string**| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
  **page** | **string**| Optional. Encoded page string returned from a previous search result that will retrieve              the next page of data. | [optional] 
 
