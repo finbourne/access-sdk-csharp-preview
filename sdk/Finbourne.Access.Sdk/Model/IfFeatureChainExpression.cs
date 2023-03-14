@@ -27,31 +27,31 @@ using OpenAPIDateConverter = Finbourne.Access.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Access.Sdk.Model
 {
     /// <summary>
-    /// NonTransitiveSupervisorRoleResource
+    /// IfFeatureChainExpression
     /// </summary>
-    [DataContract(Name = "NonTransitiveSupervisorRoleResource")]
-    public partial class NonTransitiveSupervisorRoleResource : IEquatable<NonTransitiveSupervisorRoleResource>
+    [DataContract(Name = "IfFeatureChainExpression")]
+    public partial class IfFeatureChainExpression : IEquatable<IfFeatureChainExpression>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NonTransitiveSupervisorRoleResource" /> class.
+        /// Initializes a new instance of the <see cref="IfFeatureChainExpression" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected NonTransitiveSupervisorRoleResource() { }
+        protected IfFeatureChainExpression() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="NonTransitiveSupervisorRoleResource" /> class.
+        /// Initializes a new instance of the <see cref="IfFeatureChainExpression" /> class.
         /// </summary>
-        /// <param name="roles">roles (required).</param>
-        public NonTransitiveSupervisorRoleResource(List<Dictionary<string, string>> roles = default(List<Dictionary<string, string>>))
+        /// <param name="selectors">selectors (required).</param>
+        public IfFeatureChainExpression(List<SelectorDefinition> selectors = default(List<SelectorDefinition>))
         {
-            // to ensure "roles" is required (not null)
-            this.Roles = roles ?? throw new ArgumentNullException("roles is a required property for NonTransitiveSupervisorRoleResource and cannot be null");
+            // to ensure "selectors" is required (not null)
+            this.Selectors = selectors ?? throw new ArgumentNullException("selectors is a required property for IfFeatureChainExpression and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets Roles
+        /// Gets or Sets Selectors
         /// </summary>
-        [DataMember(Name = "roles", IsRequired = true, EmitDefaultValue = false)]
-        public List<Dictionary<string, string>> Roles { get; set; }
+        [DataMember(Name = "selectors", IsRequired = true, EmitDefaultValue = false)]
+        public List<SelectorDefinition> Selectors { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,8 +60,8 @@ namespace Finbourne.Access.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NonTransitiveSupervisorRoleResource {\n");
-            sb.Append("  Roles: ").Append(Roles).Append("\n");
+            sb.Append("class IfFeatureChainExpression {\n");
+            sb.Append("  Selectors: ").Append(Selectors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,25 +82,25 @@ namespace Finbourne.Access.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NonTransitiveSupervisorRoleResource);
+            return this.Equals(input as IfFeatureChainExpression);
         }
 
         /// <summary>
-        /// Returns true if NonTransitiveSupervisorRoleResource instances are equal
+        /// Returns true if IfFeatureChainExpression instances are equal
         /// </summary>
-        /// <param name="input">Instance of NonTransitiveSupervisorRoleResource to be compared</param>
+        /// <param name="input">Instance of IfFeatureChainExpression to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NonTransitiveSupervisorRoleResource input)
+        public bool Equals(IfFeatureChainExpression input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Roles == input.Roles ||
-                    this.Roles != null &&
-                    input.Roles != null &&
-                    this.Roles.SequenceEqual(input.Roles)
+                    this.Selectors == input.Selectors ||
+                    this.Selectors != null &&
+                    input.Selectors != null &&
+                    this.Selectors.SequenceEqual(input.Selectors)
                 );
         }
 
@@ -113,8 +113,8 @@ namespace Finbourne.Access.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Roles != null)
-                    hashCode = hashCode * 59 + this.Roles.GetHashCode();
+                if (this.Selectors != null)
+                    hashCode = hashCode * 59 + this.Selectors.GetHashCode();
                 return hashCode;
             }
         }
