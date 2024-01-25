@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 <a name="listpolicytemplates"></a>
 # **ListPolicyTemplates**
-> ICollection&lt;PolicyTemplateResponse&gt; ListPolicyTemplates (DateTimeOffset? asAt = null)
+> ResourceListOfPolicyTemplateResponse ListPolicyTemplates (DateTimeOffset? asAt = null, string sortBy = null, int? limit = null, string filter = null, string page = null)
 
 [EXPERIMENTAL] ListPolicyTemplates: List Policy Templates
 
@@ -352,11 +352,15 @@ namespace Example
 
             var apiInstance = new PolicyTemplatesApi(config);
             var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date time of the data (optional) 
+            var sortBy = sortBy_example;  // string | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
+            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
+            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
+            var page = page_example;  // string | Optional. Paging token returned from a previous result (optional) 
 
             try
             {
                 // [EXPERIMENTAL] ListPolicyTemplates: List Policy Templates
-                ICollection<PolicyTemplateResponse> result = apiInstance.ListPolicyTemplates(asAt);
+                ResourceListOfPolicyTemplateResponse result = apiInstance.ListPolicyTemplates(asAt, sortBy, limit, filter, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -375,10 +379,14 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asAt** | **DateTimeOffset?**| Optional. The AsAt date time of the data | [optional] 
+ **sortBy** | **string**| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
+ **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
+ **filter** | **string**| Optional. Expression to filter the result set | [optional] 
+ **page** | **string**| Optional. Paging token returned from a previous result | [optional] 
 
 ### Return type
 
-[**ICollection&lt;PolicyTemplateResponse&gt;**](PolicyTemplateResponse.md)
+[**ResourceListOfPolicyTemplateResponse**](ResourceListOfPolicyTemplateResponse.md)
 
 ### Authorization
 
