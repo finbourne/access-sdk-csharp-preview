@@ -4,20 +4,20 @@ All URIs are relative to *https://www.lusid.com/access*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddPolicyCollectionToRole**](RolesApi.md#addpolicycollectiontorole) | **POST** /api/roles/{scope}/{code}/policycollections | [EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role
-[**CreateRole**](RolesApi.md#createrole) | **POST** /api/roles | [EARLY ACCESS] CreateRole: Create Role
-[**DeleteRole**](RolesApi.md#deleterole) | **DELETE** /api/roles/{code} | [EARLY ACCESS] DeleteRole: Delete Role
-[**GetRole**](RolesApi.md#getrole) | **GET** /api/roles/{code} | [EARLY ACCESS] GetRole: Get Role
-[**ListRoles**](RolesApi.md#listroles) | **GET** /api/roles | [EARLY ACCESS] ListRoles: List Roles
-[**RemovePolicyCollectionFromRole**](RolesApi.md#removepolicycollectionfromrole) | **DELETE** /api/roles/{scope}/{code}/policycollections/{policycollectionscope}/{policycollectioncode} | [EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role
-[**UpdateRole**](RolesApi.md#updaterole) | **PUT** /api/roles/{code} | [EARLY ACCESS] UpdateRole: Update Role
+[**AddPolicyCollectionToRole**](RolesApi.md#addpolicycollectiontorole) | **POST** /api/roles/{scope}/{code}/policycollections | AddPolicyCollectionToRole: Add policy collections to a role
+[**CreateRole**](RolesApi.md#createrole) | **POST** /api/roles | CreateRole: Create Role
+[**DeleteRole**](RolesApi.md#deleterole) | **DELETE** /api/roles/{code} | DeleteRole: Delete Role
+[**GetRole**](RolesApi.md#getrole) | **GET** /api/roles/{code} | GetRole: Get Role
+[**ListRoles**](RolesApi.md#listroles) | **GET** /api/roles | ListRoles: List Roles
+[**RemovePolicyCollectionFromRole**](RolesApi.md#removepolicycollectionfromrole) | **DELETE** /api/roles/{scope}/{code}/policycollections/{policycollectionscope}/{policycollectioncode} | RemovePolicyCollectionFromRole: Remove policy collection from role
+[**UpdateRole**](RolesApi.md#updaterole) | **PUT** /api/roles/{code} | UpdateRole: Update Role
 
 
 <a name="addpolicycollectiontorole"></a>
 # **AddPolicyCollectionToRole**
 > RoleResponse AddPolicyCollectionToRole (string scope, string code, AddPolicyCollectionToRoleRequest addPolicyCollectionToRoleRequest)
 
-[EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role
+AddPolicyCollectionToRole: Add policy collections to a role
 
 Assigns policy collections to a role
 
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] AddPolicyCollectionToRole: Add policy collections to a role
+                // AddPolicyCollectionToRole: Add policy collections to a role
                 RoleResponse result = apiInstance.AddPolicyCollectionToRole(scope, code, addPolicyCollectionToRoleRequest);
                 Debug.WriteLine(result);
             }
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **CreateRole**
 > RoleResponse CreateRole (RoleCreationRequest roleCreationRequest)
 
-[EARLY ACCESS] CreateRole: Create Role
+CreateRole: Create Role
 
 Creates a Role
 
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] CreateRole: Create Role
+                // CreateRole: Create Role
                 RoleResponse result = apiInstance.CreateRole(roleCreationRequest);
                 Debug.WriteLine(result);
             }
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 # **DeleteRole**
 > void DeleteRole (string code, string scope = null)
 
-[EARLY ACCESS] DeleteRole: Delete Role
+DeleteRole: Delete Role
 
 Deletes an identified Role
 
@@ -202,7 +202,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] DeleteRole: Delete Role
+                // DeleteRole: Delete Role
                 apiInstance.DeleteRole(code, scope);
             }
             catch (ApiException  e)
@@ -250,7 +250,7 @@ void (empty response body)
 # **GetRole**
 > RoleResponse GetRole (string code, DateTimeOffset? asAt = null, string scope = null)
 
-[EARLY ACCESS] GetRole: Get Role
+GetRole: Get Role
 
 Gets an identified Role
 
@@ -280,7 +280,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] GetRole: Get Role
+                // GetRole: Get Role
                 RoleResponse result = apiInstance.GetRole(code, asAt, scope);
                 Debug.WriteLine(result);
             }
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 # **ListRoles**
 > ICollection&lt;RoleResponse&gt; ListRoles (string scope = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
-[EARLY ACCESS] ListRoles: List Roles
+ListRoles: List Roles
 
 Gets all Roles in a scope
 
@@ -363,7 +363,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListRoles: List Roles
+                // ListRoles: List Roles
                 ICollection<RoleResponse> result = apiInstance.ListRoles(scope, asAt, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -416,7 +416,7 @@ Name | Type | Description  | Notes
 # **RemovePolicyCollectionFromRole**
 > RoleResponse RemovePolicyCollectionFromRole (string scope, string code, string policycollectionscope, string policycollectioncode)
 
-[EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role
+RemovePolicyCollectionFromRole: Remove policy collection from role
 
 Removes a policy collection from a role
 
@@ -447,7 +447,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] RemovePolicyCollectionFromRole: Remove policy collection from role
+                // RemovePolicyCollectionFromRole: Remove policy collection from role
                 RoleResponse result = apiInstance.RemovePolicyCollectionFromRole(scope, code, policycollectionscope, policycollectioncode);
                 Debug.WriteLine(result);
             }
@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 # **UpdateRole**
 > RoleResponse UpdateRole (string code, RoleUpdateRequest roleUpdateRequest, string scope = null, string beforeScope = null, string beforeCode = null, string afterScope = null, string afterCode = null)
 
-[EARLY ACCESS] UpdateRole: Update Role
+UpdateRole: Update Role
 
 Updates a Role
 
@@ -532,7 +532,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] UpdateRole: Update Role
+                // UpdateRole: Update Role
                 RoleResponse result = apiInstance.UpdateRole(code, roleUpdateRequest, scope, beforeScope, beforeCode, afterScope, afterCode);
                 Debug.WriteLine(result);
             }
