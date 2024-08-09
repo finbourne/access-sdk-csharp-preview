@@ -13,9 +13,9 @@ Method | HTTP request | Description
 [**GetOwnPolicies**](PoliciesApi.md#getownpolicies) | **GET** /api/me | GetOwnPolicies: Get policies of requesting user
 [**GetPolicy**](PoliciesApi.md#getpolicy) | **GET** /api/policies/{code} | GetPolicy: Get Policy
 [**GetPolicyCollection**](PoliciesApi.md#getpolicycollection) | **GET** /api/policycollections/{code} | GetPolicyCollection: Get PolicyCollection
-[**ListPolicies**](PoliciesApi.md#listpolicies) | **GET** /api/policies | [EARLY ACCESS] ListPolicies: List Policies
+[**ListPolicies**](PoliciesApi.md#listpolicies) | **GET** /api/policies | ListPolicies: List Policies
 [**ListPolicyCollections**](PoliciesApi.md#listpolicycollections) | **GET** /api/policycollections | ListPolicyCollections: List PolicyCollections
-[**PagePolicies**](PoliciesApi.md#pagepolicies) | **GET** /api/policies/page | [EARLY ACCESS] PagePolicies: Page Policies
+[**PagePolicies**](PoliciesApi.md#pagepolicies) | **GET** /api/policies/page | PagePolicies: Page Policies
 [**PagePolicyCollections**](PoliciesApi.md#pagepolicycollections) | **GET** /api/policycollections/page | PagePolicyCollections: Page PolicyCollections
 [**RemoveFromPolicyCollection**](PoliciesApi.md#removefrompolicycollection) | **POST** /api/policycollections/{code}/remove | RemoveFromPolicyCollection: Remove From PolicyCollection
 [**UpdatePolicy**](PoliciesApi.md#updatepolicy) | **PUT** /api/policies/{code} | UpdatePolicy: Update Policy
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 # **ListPolicies**
 > ICollection&lt;PolicyResponse&gt; ListPolicies (string scope = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
 
-[EARLY ACCESS] ListPolicies: List Policies
+ListPolicies: List Policies
 
 Gets all Policies in a scope. For pagination support, use PagePolicies.
 
@@ -771,7 +771,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] ListPolicies: List Policies
+                // ListPolicies: List Policies
                 ICollection<PolicyResponse> result = apiInstance.ListPolicies(scope, asAt, sortBy, start, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -910,7 +910,7 @@ Name | Type | Description  | Notes
 # **PagePolicies**
 > ResourceListOfPolicyResponse PagePolicies (DateTimeOffset? asAt = null, string sortBy = null, int? limit = null, string filter = null, string page = null)
 
-[EARLY ACCESS] PagePolicies: Page Policies
+PagePolicies: Page Policies
 
 Gets all Policies with pagination support.
 
@@ -942,7 +942,7 @@ namespace Example
 
             try
             {
-                // [EARLY ACCESS] PagePolicies: Page Policies
+                // PagePolicies: Page Policies
                 ResourceListOfPolicyResponse result = apiInstance.PagePolicies(asAt, sortBy, limit, filter, page);
                 Debug.WriteLine(result);
             }
