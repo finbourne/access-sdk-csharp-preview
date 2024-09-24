@@ -410,7 +410,7 @@ void (empty response body)
 
 <a name="evaluate"></a>
 # **Evaluate**
-> Dictionary&lt;string, EvaluationResponse&gt; Evaluate (Dictionary<string, EvaluationRequest> requestBody, List<string> applications = null, DateTimeOffset? asAt = null)
+> Dictionary&lt;string, EvaluationResponse&gt; Evaluate (Dictionary<string, EvaluationRequest> requestBody, List<string> applications = null)
 
 Evaluate: Run one or more evaluations
 
@@ -438,12 +438,11 @@ namespace Example
             var apiInstance = new PoliciesApi(config);
             var requestBody = new Dictionary<string, EvaluationRequest>(); // Dictionary<string, EvaluationRequest> | A dictionary of evaluations, keyed using any arbitrary correlation id (it will be returned with the response for that evaluation).
             var applications = new List<string>(); // List<string> | Optional. The application type of the roles and policies to use when evaluating. (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The requested AsAt date of the entitlements (optional) 
 
             try
             {
                 // Evaluate: Run one or more evaluations
-                Dictionary<string, EvaluationResponse> result = apiInstance.Evaluate(requestBody, applications, asAt);
+                Dictionary<string, EvaluationResponse> result = apiInstance.Evaluate(requestBody, applications);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -463,7 +462,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestBody** | [**Dictionary&lt;string, EvaluationRequest&gt;**](EvaluationRequest.md)| A dictionary of evaluations, keyed using any arbitrary correlation id (it will be returned with the response for that evaluation). | 
  **applications** | [**List&lt;string&gt;**](string.md)| Optional. The application type of the roles and policies to use when evaluating. | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The requested AsAt date of the entitlements | [optional] 
 
 ### Return type
 
@@ -490,7 +488,7 @@ Name | Type | Description  | Notes
 
 <a name="getownpolicies"></a>
 # **GetOwnPolicies**
-> ICollection&lt;AttachedPolicyDefinitionResponse&gt; GetOwnPolicies (List<string> applications = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ICollection&lt;AttachedPolicyDefinitionResponse&gt; GetOwnPolicies (List<string> applications = null)
 
 GetOwnPolicies: Get policies of requesting user
 
@@ -517,16 +515,11 @@ namespace Example
 
             var apiInstance = new PoliciesApi(config);
             var applications = new List<string>(); // List<string> | Optional. Filter on the applications that the policies apply to (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date time of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
 
             try
             {
                 // GetOwnPolicies: Get policies of requesting user
-                ICollection<AttachedPolicyDefinitionResponse> result = apiInstance.GetOwnPolicies(applications, asAt, sortBy, start, limit, filter);
+                ICollection<AttachedPolicyDefinitionResponse> result = apiInstance.GetOwnPolicies(applications);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -545,11 +538,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applications** | [**List&lt;string&gt;**](string.md)| Optional. Filter on the applications that the policies apply to | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date time of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
 
 ### Return type
 
@@ -576,7 +564,7 @@ Name | Type | Description  | Notes
 
 <a name="getpolicy"></a>
 # **GetPolicy**
-> PolicyResponse GetPolicy (string code, DateTimeOffset? asAt = null, string scope = null)
+> PolicyResponse GetPolicy (string code, string scope = null)
 
 GetPolicy: Get Policy
 
@@ -603,13 +591,12 @@ namespace Example
 
             var apiInstance = new PoliciesApi(config);
             var code = code_example;  // string | The code of the Policy
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date time of the data (optional) 
             var scope = scope_example;  // string | Optional. Will use the default scope if not provided. The scope of the Policy (optional) 
 
             try
             {
                 // GetPolicy: Get Policy
-                PolicyResponse result = apiInstance.GetPolicy(code, asAt, scope);
+                PolicyResponse result = apiInstance.GetPolicy(code, scope);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -628,7 +615,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **string**| The code of the Policy | 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date time of the data | [optional] 
  **scope** | **string**| Optional. Will use the default scope if not provided. The scope of the Policy | [optional] 
 
 ### Return type
@@ -656,7 +642,7 @@ Name | Type | Description  | Notes
 
 <a name="getpolicycollection"></a>
 # **GetPolicyCollection**
-> PolicyCollectionResponse GetPolicyCollection (string code, DateTimeOffset? asAt = null, string scope = null)
+> PolicyCollectionResponse GetPolicyCollection (string code, string scope = null)
 
 GetPolicyCollection: Get PolicyCollection
 
@@ -683,13 +669,12 @@ namespace Example
 
             var apiInstance = new PoliciesApi(config);
             var code = code_example;  // string | The code of the PolicyCollection
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date time of the data (optional) 
             var scope = scope_example;  // string | Optional. Will use the default scope if not provided. The scope of the PolicyCollection (optional) 
 
             try
             {
                 // GetPolicyCollection: Get PolicyCollection
-                PolicyCollectionResponse result = apiInstance.GetPolicyCollection(code, asAt, scope);
+                PolicyCollectionResponse result = apiInstance.GetPolicyCollection(code, scope);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -708,7 +693,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **string**| The code of the PolicyCollection | 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date time of the data | [optional] 
  **scope** | **string**| Optional. Will use the default scope if not provided. The scope of the PolicyCollection | [optional] 
 
 ### Return type
@@ -736,7 +720,7 @@ Name | Type | Description  | Notes
 
 <a name="listpolicies"></a>
 # **ListPolicies**
-> ICollection&lt;PolicyResponse&gt; ListPolicies (string scope = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ICollection&lt;PolicyResponse&gt; ListPolicies (string scope = null)
 
 ListPolicies: List Policies
 
@@ -763,16 +747,11 @@ namespace Example
 
             var apiInstance = new PoliciesApi(config);
             var scope = scope_example;  // string | Optional. Will use the default scope if not provided. The requested scope (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date time of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
 
             try
             {
                 // ListPolicies: List Policies
-                ICollection<PolicyResponse> result = apiInstance.ListPolicies(scope, asAt, sortBy, start, limit, filter);
+                ICollection<PolicyResponse> result = apiInstance.ListPolicies(scope);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -791,11 +770,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| Optional. Will use the default scope if not provided. The requested scope | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date time of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
 
 ### Return type
 
@@ -822,7 +796,7 @@ Name | Type | Description  | Notes
 
 <a name="listpolicycollections"></a>
 # **ListPolicyCollections**
-> ICollection&lt;PolicyCollectionResponse&gt; ListPolicyCollections (string scope = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ICollection&lt;PolicyCollectionResponse&gt; ListPolicyCollections (string scope = null)
 
 ListPolicyCollections: List PolicyCollections
 
@@ -849,16 +823,11 @@ namespace Example
 
             var apiInstance = new PoliciesApi(config);
             var scope = scope_example;  // string | Optional. Will use the default scope if not provided. The requested scope (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date time of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
 
             try
             {
                 // ListPolicyCollections: List PolicyCollections
-                ICollection<PolicyCollectionResponse> result = apiInstance.ListPolicyCollections(scope, asAt, sortBy, start, limit, filter);
+                ICollection<PolicyCollectionResponse> result = apiInstance.ListPolicyCollections(scope);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -877,11 +846,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| Optional. Will use the default scope if not provided. The requested scope | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date time of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. 2000 if not provided. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
 
 ### Return type
 
@@ -908,7 +872,7 @@ Name | Type | Description  | Notes
 
 <a name="pagepolicies"></a>
 # **PagePolicies**
-> ResourceListOfPolicyResponse PagePolicies (DateTimeOffset? asAt = null, string sortBy = null, int? limit = null, string filter = null, string page = null)
+> ResourceListOfPolicyResponse PagePolicies (string sortBy = null, int? limit = null, string filter = null, string page = null)
 
 PagePolicies: Page Policies
 
@@ -934,7 +898,6 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PoliciesApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. Not currently used. The AsAt date time of the data (optional) 
             var sortBy = sortBy_example;  // string | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
@@ -943,7 +906,7 @@ namespace Example
             try
             {
                 // PagePolicies: Page Policies
-                ResourceListOfPolicyResponse result = apiInstance.PagePolicies(asAt, sortBy, limit, filter, page);
+                ResourceListOfPolicyResponse result = apiInstance.PagePolicies(sortBy, limit, filter, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -961,7 +924,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| Optional. Not currently used. The AsAt date time of the data | [optional] 
  **sortBy** | **string**| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **limit** | **int?**| Optional. 2000 if not provided. When paginating, limit the number of returned results to this many | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 
@@ -992,7 +954,7 @@ Name | Type | Description  | Notes
 
 <a name="pagepolicycollections"></a>
 # **PagePolicyCollections**
-> ResourceListOfPolicyCollectionResponse PagePolicyCollections (DateTimeOffset? asAt = null, string sortBy = null, int? limit = null, string filter = null, string page = null)
+> ResourceListOfPolicyCollectionResponse PagePolicyCollections (string sortBy = null, int? limit = null, string filter = null, string page = null)
 
 PagePolicyCollections: Page PolicyCollections
 
@@ -1018,7 +980,6 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PoliciesApi(config);
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. Not currently used. The AsAt date time of the data (optional) 
             var sortBy = sortBy_example;  // string | Optional. Order the results by these fields. Use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
             var limit = 56;  // int? | Optional. 2000 if not provided. When paginating, limit the number of returned results to this many (optional) 
             var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
@@ -1027,7 +988,7 @@ namespace Example
             try
             {
                 // PagePolicyCollections: Page PolicyCollections
-                ResourceListOfPolicyCollectionResponse result = apiInstance.PagePolicyCollections(asAt, sortBy, limit, filter, page);
+                ResourceListOfPolicyCollectionResponse result = apiInstance.PagePolicyCollections(sortBy, limit, filter, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1045,7 +1006,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **asAt** | **DateTimeOffset?**| Optional. Not currently used. The AsAt date time of the data | [optional] 
  **sortBy** | **string**| Optional. Order the results by these fields. Use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
  **limit** | **int?**| Optional. 2000 if not provided. When paginating, limit the number of returned results to this many | [optional] 
  **filter** | **string**| Optional. Expression to filter the result set | [optional] 

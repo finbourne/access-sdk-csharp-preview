@@ -248,7 +248,7 @@ void (empty response body)
 
 <a name="getrole"></a>
 # **GetRole**
-> RoleResponse GetRole (string code, DateTimeOffset? asAt = null, string scope = null)
+> RoleResponse GetRole (string code, string scope = null)
 
 GetRole: Get Role
 
@@ -275,13 +275,12 @@ namespace Example
 
             var apiInstance = new RolesApi(config);
             var code = code_example;  // string | The code of the Role
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date time of the data (optional) 
             var scope = scope_example;  // string | Optional. Will use default scope if not supplied. The scope of the Role (optional) 
 
             try
             {
                 // GetRole: Get Role
-                RoleResponse result = apiInstance.GetRole(code, asAt, scope);
+                RoleResponse result = apiInstance.GetRole(code, scope);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -300,7 +299,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **string**| The code of the Role | 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date time of the data | [optional] 
  **scope** | **string**| Optional. Will use default scope if not supplied. The scope of the Role | [optional] 
 
 ### Return type
@@ -328,7 +326,7 @@ Name | Type | Description  | Notes
 
 <a name="listroles"></a>
 # **ListRoles**
-> ICollection&lt;RoleResponse&gt; ListRoles (string scope = null, DateTimeOffset? asAt = null, List<string> sortBy = null, int? start = null, int? limit = null, string filter = null)
+> ICollection&lt;RoleResponse&gt; ListRoles (string scope = null)
 
 ListRoles: List Roles
 
@@ -355,16 +353,11 @@ namespace Example
 
             var apiInstance = new RolesApi(config);
             var scope = scope_example;  // string | Optional. Will use all scopes if not supplied. The requested scope (optional) 
-            var asAt = 2013-10-20T19:20:30+01:00;  // DateTimeOffset? | Optional. The AsAt date time of the data (optional) 
-            var sortBy = new List<string>(); // List<string> | Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName (optional) 
-            var start = 56;  // int? | Optional. When paginating, skip this number of results (optional) 
-            var limit = 56;  // int? | Optional. When paginating, limit the number of returned results to this many. (optional) 
-            var filter = filter_example;  // string | Optional. Expression to filter the result set (optional) 
 
             try
             {
                 // ListRoles: List Roles
-                ICollection<RoleResponse> result = apiInstance.ListRoles(scope, asAt, sortBy, start, limit, filter);
+                ICollection<RoleResponse> result = apiInstance.ListRoles(scope);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -383,11 +376,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **scope** | **string**| Optional. Will use all scopes if not supplied. The requested scope | [optional] 
- **asAt** | **DateTimeOffset?**| Optional. The AsAt date time of the data | [optional] 
- **sortBy** | [**List&lt;string&gt;**](string.md)| Optional. Order the results by these fields. Use use the &#39;-&#39; sign to denote descending order e.g. -MyFieldName | [optional] 
- **start** | **int?**| Optional. When paginating, skip this number of results | [optional] 
- **limit** | **int?**| Optional. When paginating, limit the number of returned results to this many. | [optional] 
- **filter** | **string**| Optional. Expression to filter the result set | [optional] 
 
 ### Return type
 
